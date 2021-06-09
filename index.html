@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Rock-Paper-Scissors game</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-sm-4 mx-auto">
+                <h2>Rock-Paper-Scissors game</h2>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-4 mx-auto">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-playerNameInput">Please enter your name:</span>
+                    <input type="text" class="form-control" placeholder="Pikachu" aria-label="Playername" aria-describedby="playerNameInput" id="txtName">
+                    <button class="btn btn-primary" id="btnPlay">Play</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-8 mx-auto">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="text-center">Choose your weapon:</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary" id="btnRock" disabled>
+                            <i class="bi bi-heptagon"></i> 
+                            Rock
+                        </button>
+                        <button class="btn btn-primary" id="btnPaper" disabled>
+                            <i class="bi bi-journal-text"></i>
+                            Paper
+                        </button>
+                        <button class="btn btn-primary" id="btnScissors" disabled>
+                            <i class="bi bi-scissors"></i>
+                            Scissors
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <p class="text-center">Your weapon:</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="text-center" id="usrWpn"></p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <p class="text-center">Computer chooses:</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="text-center" id="compWpn"></p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col  text-center">
+                        <h3>Winner: <span id="winner">-</span></h3>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <h3>Computer: <span id="cmpScr">0</span></h3>
+                    </div>
+                    <div class="col text-center">
+                        <h3><span id="playerNameScores">Player: </span><span id="plrScr">0</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="./rps.js"></script>
+</body>
+</html>
