@@ -15,7 +15,6 @@ const popoverEnterName = new bootstrap.Popover(txtNameField, {
     trigger:'manual',
 });
 
-// txtNameField.addEventListener('keypress',popoverEnterName.hide);
 const btnPlay = document.getElementById('btnPlay');
 btnPlay.addEventListener('click',btnPlayClick);
 const btnRock = document.getElementById('btnRock');
@@ -26,13 +25,13 @@ btnPaper.addEventListener('click',btnWpnClick);
 btnScissors.addEventListener('click',btnWpnClick);
 
 function btnPlayClick(){
-    // console.log(playerScoreField);
     if (txtNameField.value!==""){
         txtNameField.setAttribute("disabled","disabled");
         btnPlay.setAttribute("disabled","disabled");
         playerNameScores.innerText = txtNameField.value + ": ";
         startGame();
-    }else popoverEnterName.show();
+    }
+    else popoverEnterName.show();
 }
 
 function startGame(){
@@ -43,19 +42,21 @@ function startGame(){
 
 function compMakesMove() {
     let rand = Math.floor(Math.random()*3);
+    console.log("Computer thows", rand);
     return rand === 0 ? "Rock" : rand===1 ? "Paper" : "Scissors"
 }
 
 function btnWpnClick(button) {
-    console.log('User ckicked:', button.target.id);
-    if (button.target.id==="")
-    {
-        console.log('Error: ',button.target.id); /* Sometimes gives "<empty string>" instead of id */
-        return /* do nothing */
-    }
-    const userWpn = button.target.id === "btnRock" ? "Rock" : button.target.id === "btnPaper" ? "Paper" : "Scissors"; 
+    const btnClickedID = button.target.tagName==="BUTTON" ? button.target.id : button.target.tagName==="I" ? button.target.parentElement.id : 0;
+    if (btnClickedID===0) return /* In case of some other ID return with nothing */
+    
+    const userWpn = btnClickedID === "btnRock" ? "Rock" : btnClickedID === "btnPaper" ? "Paper" : "Scissors"; 
+
+    const compWpn = compMakesMove(); /* Lets make computer show his weapon first */
+    console.log("Computer chose: ", compWpn);
+    console.log("You chose: ", userWpn);
+
     userWpnField.innerText = userWpn;
-    const compWpn = compMakesMove();
     compWpnField.innerText=compWpn;
     const winner = whoWins(userWpn, compWpn);
     winnerField.innerText = winner;
